@@ -11,7 +11,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
 }
 
-group = "com.example.server"
+group = "org.example.server"
 version = "0.0.1-SNAPSHOT"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
@@ -22,18 +22,13 @@ repositories {
 dependencies {
     api(project(":web"))
 
-    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-
-    runtimeOnly("org.postgresql:postgresql")
 
     testFixturesApi(testFixtures(project(":web")))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("io.zonky.test:embedded-postgres:1.3.1")
-    testImplementation("io.zonky.test:embedded-database-spring-test:2.1.1")
-    testImplementation(enforcedPlatform("io.zonky.test.postgres:embedded-postgres-binaries-bom:14.3.0"))
 }
 
 tasks.withType<KotlinCompile> {
